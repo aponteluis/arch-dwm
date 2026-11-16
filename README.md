@@ -22,6 +22,7 @@ My Arch setup: dwm, st, dmenu and slock, with a black and gray theme.
 | 14 | Work apps | `sudo pacman -S obsidian libreoffice-fresh thunderbird keepassxc zathura zathura-pdf-mupdf mpv` |
 | 15 | Timeshift schedule | `sudo systemctl enable --now cronie` |
 | 16 | Timeshift setup | open `timeshift-launcher`: RSYNC, sda2, daily 5, weekly 3, home excluded, then Create |
+| 17 | Dark theme | `gsettings set org.gnome.desktop.interface color-scheme prefer-dark`, and for Timeshift (runs as root) `sudo mkdir -p /root/.config && sudo cp -r ~/.config/gtk-3.0 /root/.config/` |
 
 Only `make install` and `pacman` need sudo. Files in home are mine, so `nano config.h` is enough.
 
