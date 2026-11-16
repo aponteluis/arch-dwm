@@ -18,6 +18,10 @@ My Arch setup: dwm, st, dmenu and slock, with a black and gray theme.
 | 10 | File manager | `sudo pacman -S dolphin qt6ct papirus-icon-theme ffmpegthumbs kdegraphics-thumbnailers qt6-imageformats` |
 | 11 | Screenshots, wallpaper | `sudo pacman -S scrot xwallpaper` |
 | 12 | Apps | `sudo pacman -S librewolf fastfetch krita reaper` |
+| 13 | Desktop helpers | `sudo pacman -S dunst udiskie clipmenu redshift blueman pavucontrol lxqt-policykit timeshift unzip 7zip` |
+| 14 | Work apps | `sudo pacman -S obsidian libreoffice-fresh thunderbird keepassxc zathura zathura-pdf-mupdf mpv` |
+| 15 | Timeshift schedule | `sudo systemctl enable --now cronie` |
+| 16 | Timeshift setup | open `timeshift-launcher`: RSYNC, sda2, daily 5, weekly 3, home excluded, then Create |
 
 Only `make install` and `pacman` need sudo. Files in home are mine, so `nano config.h` is enough.
 
@@ -62,6 +66,14 @@ Mod key is Super (the Windows key). Tags 1-9 are the workspaces. Master is the b
 | Super+e | dolphin |
 | Super+w | wifi menu |
 | Super+Shift+x | lock |
+| Super+r | librewolf |
+| Super+o | obsidian |
+| Super+n | thunderbird |
+| Super+Shift+k | keepassxc |
+| Super+a | audio settings |
+| Super+Shift+b | bluetooth |
+| Super+v | clipboard history |
+| Super+` | last notification again |
 | Print | screenshot |
 | Shift+Print | screenshot of an area |
 | volume keys | volume up / down / mute |
