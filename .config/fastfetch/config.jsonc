@@ -1,0 +1,15 @@
+{
+  "logo": { "type": "small", "color": { "1": "magenta", "2": "blue" }, "padding": { "top": 1, "left": 2, "right": 3 } },
+  "display": { "separator": "  ", "color": { "keys": "magenta" } },
+  "modules": [
+    { "type": "title", "color": { "user": "blue", "at": "white", "host": "magenta" } },
+    { "type": "os", "key": "os " },
+    { "type": "kernel", "key": "ker" },
+    { "type": "packages", "key": "pkg" },
+    { "type": "wm", "key": "wm " },
+    { "type": "terminal", "key": "trm" },
+    { "type": "memory", "key": "mem" },
+    { "type": "uptime", "key": "up " },
+    { "type": "colors", "symbol": "circle" }
+  ]
+}

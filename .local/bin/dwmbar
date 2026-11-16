@@ -1,0 +1,26 @@
+#!/bin/bash
+# icons need a Nerd Font
+trap : USR1 # pkill -USR1 -x dwmbar refreshes now
+read -r _ u n s pi _ < /proc/stat; pt=$((u+n+s+pi))
+while :; do
+	# cpu: busy % since last tick
+	read -r _ u n s i _ < /proc/stat; t=$((u+n+s+i))
+	cpu=$(( t > pt ? 100 * ((t-pt) - (i-pi)) / (t-pt) : 0 )); pt=$t pi=$i
+
+	while read -r k v _; do
+		case $k in MemTotal:) mt=$v ;; MemAvailable:) ma=$v; break ;; esac
+	done < /proc/meminfo
+	d=$(( (mt - ma) * 10 / 1048576 )); mem=$((d / 10)).$((d % 10))G
+
+	v=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)
+	if [[ $v == *MUTED* ]]; then vol=mute; elif [[ $v ]]; then f=${v#Volume: }; vol=$((10#${f/./}))%; else vol=--; fi
+
+	net=󰖪 # disconnected
+	for d in /sys/class/net/e* /sys/class/net/w*; do
+		[[ -r $d/operstate && $(< "$d/operstate") == up ]] && { [[ ${d##*/} == w* ]] && net=󰖩 || net=󰈀; break; }
+	done
+
+	printf -v now '%(%H:%M  %a %d)T' -1
+	xsetroot -name "  $cpu%   󰍛 $mem    $vol   $net    ${now,,} " || exit
+	sleep 5 & wait $!; kill $! 2>/dev/null
+done

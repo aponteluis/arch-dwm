@@ -1,0 +1,15 @@
+[General]
+ColorScheme=MonoDark
+TerminalApplication=st
+
+[Icons]
+Theme=Papirus-Grey
+
+[MainToolbarIcons]
+Size=16
+
+[Toolbar style]
+ToolButtonStyle=IconOnly
+
+[ToolbarIcons]
+Size=16

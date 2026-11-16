@@ -1,0 +1,36 @@
+#!/bin/bash
+fail() { printf '%s\n' "$1" | dmenu -p "wifi error" -l 5; exit 1; }
+
+nmcli radio wifi | grep -q enabled && toggle="󰖪  turn wifi off" || toggle="󰖩  turn wifi on"
+settings="󰒓  network settings"
+
+declare -A ssid_of sec_of seen
+rows=()
+while IFS=: read -r use sig sec ssid; do
+	[[ -z $ssid || -n ${seen[$ssid]} ]] && continue; seen[$ssid]=1
+	row=$(printf '%s %-30.30s %3s%%  %s' "$([[ $use == '*' ]] && echo  || echo ' ')" "$ssid" "$sig" "$([[ -n $sec ]] && echo )")
+	rows+=("$row"); ssid_of[$row]=$ssid; sec_of[$row]=$sec
+done < <(nmcli -t --escape no -f IN-USE,SIGNAL,SECURITY,SSID dev wifi list --rescan auto 2>/dev/null)
+
+choice=$(printf '%s\n' "$toggle" "$settings" "${rows[@]}" | dmenu -p "wifi") || exit 0
+case $choice in
+	"$toggle")   [[ $toggle == *off ]] && nmcli radio wifi off || nmcli radio wifi on; exit ;;
+	"$settings") exec st -e nmtui ;;
+esac
+ssid=${ssid_of[$choice]}; sec=${sec_of[$choice]}
+[[ -n $ssid ]] || exit 0
+
+if nmcli -t -f NAME con show | grep -qxF -- "$ssid"; then
+	out=$(nmcli con up id "$ssid" 2>&1) || fail "$out"
+elif [[ -z $sec ]]; then
+	out=$(nmcli dev wifi connect "$ssid" 2>&1) || fail "$out"
+elif [[ $sec == *802.1X* ]]; then
+	exec st -e nmtui   # enterprise logins need more than a password
+else
+	# fg = bg hides typing; password goes to nmcli by fd, never argv
+	pass=$(dmenu -p "password for $ssid" -l 0 -nf "#111111" -sf "#111111" </dev/null) || exit 0
+	[[ $sec == *WPA3* && $sec != *WPA2* ]] && km=sae || km=wpa-psk
+	nmcli con add type wifi con-name "$ssid" ssid "$ssid" wifi-sec.key-mgmt $km >/dev/null || fail "could not create $ssid"
+	out=$(nmcli con up id "$ssid" passwd-file <(printf 'wifi-sec.psk:%s\n' "$pass") 2>&1) || { nmcli con delete id "$ssid" >/dev/null; fail "$out"; }
+fi
+pkill -USR1 -x dwmbar
