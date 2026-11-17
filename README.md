@@ -28,6 +28,8 @@ My Arch setup: dwm, st, dmenu and slock, with a black and gray theme.
 | 20 | Music plugins | `sudo pacman -S dragonfly-reverb-vst3 surge-xt-vst3 lsp-plugins-vst3 sfizz-vst3 guitarix gxplugins.lv2`, then Re-scan VST and LV2 in REAPER's Plug-ins settings |
 | 21 | OpenUtau | `git clone https://aur.archlinux.org/openutau-bin.git ~/.local/src/openutau-bin`, then `makepkg -si` in it |
 | 22 | MIDI keyboard | REAPER, Preferences, Audio, MIDI Inputs: right-click the MPK, Enable input |
+| 23 | Roblox (Sober) | `sudo pacman -S flatpak gamemode libva-intel-driver`, then `flatpak install flathub org.vinegarhq.Sober`. In Roblox set max frame rate to 75 |
+| 24 | Faster boot, print on demand | `sudo systemctl disable NetworkManager-wait-online.service cups.service` and `sudo systemctl enable cups.socket cups.path` |
 
 Only `make install` and `pacman` need sudo. Files in home are mine, so `nano config.h` is enough.
 
@@ -36,7 +38,7 @@ Only `make install` and `pacman` need sudo. Files in home are mine, so `nano con
 On a new machine, do the steps above, then:
 
 ```
-cp -r .xinitrc .Xresources .bashrc .bash_profile .config .local .icons ~/
+cp -r .xinitrc .Xresources .bashrc .bash_profile .config .local .icons .var ~/
 ./papirus-grey.sh
 ```
 
