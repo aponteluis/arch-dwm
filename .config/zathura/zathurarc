@@ -1,0 +1,12 @@
+set font "JetBrainsMono Nerd Font 8"
+set default-bg "#111111"
+set default-fg "#d0d0d0"
+set statusbar-bg "#1c1c1c"
+set statusbar-fg "#d0d0d0"
+set inputbar-bg "#111111"
+set inputbar-fg "#eeeeee"
+set recolor true
+set recolor-lightcolor "#111111"
+set recolor-darkcolor "#d0d0d0"
+set recolor-keephue true
+set selection-clipboard clipboard

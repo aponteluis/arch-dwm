@@ -19,11 +19,12 @@ My Arch setup: dwm, st, dmenu and slock, with a black and gray theme.
 | 11 | Screenshots, wallpaper | `sudo pacman -S scrot xwallpaper` |
 | 12 | Apps | `sudo pacman -S librewolf fastfetch krita reaper` |
 | 13 | Desktop helpers | `sudo pacman -S dunst udiskie clipmenu redshift blueman pavucontrol lxqt-policykit timeshift unzip 7zip` |
-| 14 | Work apps | `sudo pacman -S obsidian libreoffice-fresh thunderbird keepassxc zathura zathura-pdf-mupdf mpv` |
+| 14 | Work apps | `sudo pacman -S obsidian libreoffice-fresh thunderbird keepassxc zathura zathura-pdf-mupdf mpv nsxiv` |
 | 15 | Timeshift schedule | `sudo systemctl enable --now cronie` |
 | 16 | Timeshift setup | open `timeshift-launcher`: RSYNC, sda2, daily 5, weekly 3, home excluded, then Create |
 | 17 | Dark theme | `gsettings set org.gnome.desktop.interface color-scheme prefer-dark`, and for Timeshift (runs as root) `sudo mkdir -p /root/.config && sudo cp -r ~/.config/gtk-3.0 /root/.config/` |
 | 18 | Printer (HP Laser 107w) | `git clone https://aur.archlinux.org/hpuld.git ~/.local/src/hpuld`, then `makepkg -si` in it, then add it in `system-config-printer` with the HP Laser 10x Series driver |
+| 19 | Clean old packages weekly | `sudo pacman -S pacman-contrib` and `sudo systemctl enable --now paccache.timer` |
 
 Only `make install` and `pacman` need sudo. Files in home are mine, so `nano config.h` is enough.
 
@@ -32,7 +33,7 @@ Only `make install` and `pacman` need sudo. Files in home are mine, so `nano con
 On a new machine, do the steps above, then:
 
 ```
-cp -r .xinitrc .bashrc .bash_profile .config .local .icons ~/
+cp -r .xinitrc .Xresources .bashrc .bash_profile .config .local .icons ~/
 ./papirus-grey.sh
 ```
 
@@ -160,4 +161,4 @@ Mod key is Super (the Windows key). Tags 1-9 are the workspaces. Master is the b
 
 - st: scrollback (Shift+PgUp/PgDn, mouse wheel)
 - dmenu: centered, border
-- dwm: window title not highlighted
+- dwm: window title not highlighted, empty tags hidden (hide_vacant_tags)

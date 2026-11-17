@@ -1,0 +1,5 @@
+Nsxiv.window.background: #111111
+Nsxiv.window.foreground: #d0d0d0
+Nsxiv.bar.background: #1c1c1c
+Nsxiv.bar.foreground: #d0d0d0
+Nsxiv.bar.font: JetBrainsMono Nerd Font:size=8
