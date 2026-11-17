@@ -25,6 +25,9 @@ My Arch setup: dwm, st, dmenu and slock, with a black and gray theme.
 | 17 | Dark theme | `gsettings set org.gnome.desktop.interface color-scheme prefer-dark`, and for Timeshift (runs as root) `sudo mkdir -p /root/.config && sudo cp -r ~/.config/gtk-3.0 /root/.config/` |
 | 18 | Printer (HP Laser 107w) | `git clone https://aur.archlinux.org/hpuld.git ~/.local/src/hpuld`, then `makepkg -si` in it, then add it in `system-config-printer` with the HP Laser 10x Series driver |
 | 19 | Clean old packages weekly | `sudo pacman -S pacman-contrib` and `sudo systemctl enable --now paccache.timer` |
+| 20 | Music plugins | `sudo pacman -S dragonfly-reverb-vst3 surge-xt-vst3 lsp-plugins-vst3 sfizz-vst3 guitarix gxplugins.lv2`, then Re-scan VST and LV2 in REAPER's Plug-ins settings |
+| 21 | OpenUtau | `git clone https://aur.archlinux.org/openutau-bin.git ~/.local/src/openutau-bin`, then `makepkg -si` in it |
+| 22 | MIDI keyboard | REAPER, Preferences, Audio, MIDI Inputs: right-click the MPK, Enable input |
 
 Only `make install` and `pacman` need sudo. Files in home are mine, so `nano config.h` is enough.
 
@@ -162,3 +165,16 @@ Mod key is Super (the Windows key). Tags 1-9 are the workspaces. Master is the b
 - st: scrollback (Shift+PgUp/PgDn, mouse wheel)
 - dmenu: centered, border
 - dwm: window title not highlighted, empty tags hidden (hide_vacant_tags)
+
+## Music
+
+Not in the repo, download again on a new machine.
+
+- Guitar: Emilyguitar (SFZ, free from Karoryfer) in `~/Music/samples/`. Chain in REAPER: sfizz, Guitarix amp, GxCabinet, Dragonfly.
+- Teto: `TETO-OUset240323.zip` (Japanese, all voices) and `TETO-English-150401.zip` from kasaneteto.jp/utau. Install in OpenUtau with Tools, Install Singer. Free for non-commercial use, no redistribution.
+
+| Language | Teto bank | Phonemizer |
+|---|---|---|
+| Japanese | OU integrated | JA VCV & CVVC |
+| English | English | EN X-SAMPA |
+| Spanish | OU integrated | ES to JA |
