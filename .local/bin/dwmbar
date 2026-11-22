@@ -3,9 +3,9 @@
 trap : USR1 # pkill -USR1 -x dwmbar refreshes now
 read -r _ u n s pi _ < /proc/stat; pt=$((u+n+s+pi))
 while :; do
-	# cpu: busy % since last tick
-	read -r _ u n s i _ < /proc/stat; t=$((u+n+s+i))
-	cpu=$(( t > pt ? 100 * ((t-pt) - (i-pi)) / (t-pt) : 0 )); pt=$t pi=$i
+	# cpu: busy % since last tick, kept as is on a volume refresh
+	[[ $early ]] || { read -r _ u n s i _ < /proc/stat; t=$((u+n+s+i))
+	cpu=$(( t > pt ? 100 * ((t-pt) - (i-pi)) / (t-pt) : 0 )); pt=$t pi=$i; }
 
 	while read -r k v _; do
 		case $k in MemTotal:) mt=$v ;; MemAvailable:) ma=$v; break ;; esac
@@ -21,6 +21,6 @@ while :; do
 	done
 
 	printf -v now '%(%H:%M  %a %d)T' -1
-	xsetroot -name "  $cpu%   󰍛 $mem    $vol   $net    ${now,,} " || exit
-	sleep 5 & wait $!; kill $! 2>/dev/null
+	xsetroot -name " 󰻠 $cpu%   󰍛 $mem   󰕾 $vol   $net    ${now,,} " || exit
+	sleep 5 & wait $! && early= || { early=1; kill $! 2>/dev/null; }
 done

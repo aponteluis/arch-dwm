@@ -30,6 +30,7 @@ My Arch setup: dwm, st, dmenu and slock, with a black and gray theme.
 | 22 | MIDI keyboard | REAPER, Preferences, Audio, MIDI Inputs: right-click the MPK, Enable input |
 | 23 | Roblox (Sober) | `sudo pacman -S flatpak gamemode libva-intel-driver`, then `flatpak install flathub org.vinegarhq.Sober`. In Roblox set max frame rate to 75 |
 | 24 | Faster boot, print on demand | `sudo systemctl disable NetworkManager-wait-online.service cups.service` and `sudo systemctl enable cups.socket cups.path` |
+| 25 | Other packages | `sudo pacman -S github-cli nodejs noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-liberation` |
 
 Only `make install` and `pacman` need sudo. Files in home are mine, so `nano config.h` is enough.
 
