@@ -1,0 +1,63 @@
+border.width: 0
+padding.width: 4
+padding.height: 3
+window.handle.width: 0
+window.client.padding.width: 0
+window.client.padding.height: 0
+window.active.border.color: #3a3a3a
+window.inactive.border.color: #1c1c1c
+window.active.title.bg: flat solid
+window.active.title.bg.color: #1c1c1c
+window.inactive.title.bg: flat solid
+window.inactive.title.bg.color: #111111
+window.active.label.bg: parentrelative
+window.inactive.label.bg: parentrelative
+window.active.label.text.color: #d0d0d0
+window.inactive.label.text.color: #6a6a6a
+window.label.text.justify: left
+window.active.button.unpressed.bg: parentrelative
+window.active.button.unpressed.image.color: #b0b0b0
+window.active.button.hover.bg: flat solid
+window.active.button.hover.bg.color: #3a3a3a
+window.active.button.hover.image.color: #eeeeee
+window.active.button.pressed.bg: flat solid
+window.active.button.pressed.bg.color: #2a2a2a
+window.active.button.pressed.image.color: #eeeeee
+window.inactive.button.unpressed.bg: parentrelative
+window.inactive.button.unpressed.image.color: #6a6a6a
+window.inactive.button.hover.bg: flat solid
+window.inactive.button.hover.bg.color: #2a2a2a
+window.inactive.button.hover.image.color: #d0d0d0
+window.inactive.button.pressed.bg: flat solid
+window.inactive.button.pressed.bg.color: #2a2a2a
+window.inactive.button.pressed.image.color: #d0d0d0
+window.active.handle.bg: flat solid
+window.active.handle.bg.color: #1c1c1c
+window.inactive.handle.bg: flat solid
+window.inactive.handle.bg.color: #111111
+window.active.grip.bg: flat solid
+window.active.grip.bg.color: #1c1c1c
+window.inactive.grip.bg: flat solid
+window.inactive.grip.bg.color: #111111
+menu.border.width: 1
+menu.border.color: #3a3a3a
+menu.items.bg: flat solid
+menu.items.bg.color: #111111
+menu.items.text.color: #d0d0d0
+menu.items.disabled.text.color: #6a6a6a
+menu.items.active.bg: flat solid
+menu.items.active.bg.color: #3a3a3a
+menu.items.active.text.color: #eeeeee
+menu.title.bg: flat solid
+menu.title.bg.color: #1c1c1c
+menu.title.text.color: #d0d0d0
+menu.separator.color: #3a3a3a
+osd.border.width: 1
+osd.border.color: #3a3a3a
+osd.bg: flat solid
+osd.bg.color: #111111
+osd.label.text.color: #d0d0d0
+osd.hilight.bg: flat solid
+osd.hilight.bg.color: #6a6a6a
+osd.unhilight.bg: flat solid
+osd.unhilight.bg.color: #2a2a2a

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Redshift
+Exec=redshift -l 32.6:-115.5
+NoDisplay=true

@@ -1,0 +1,58 @@
+configuration {
+    modes: "drun,run,window";
+    show-icons: true;
+    icon-theme: "breeze-dark";
+    font: "JetBrainsMono Nerd Font 8";
+    matching: "fuzzy";
+    sort: true;
+    drun-display-format: "{name}";
+    display-drun: "apps";
+    display-run: "run";
+    display-window: "windows";
+    kb-mode-next: "Control+Tab";
+    kb-mode-previous: "Control+ISO_Left_Tab";
+}
+
+@theme "/dev/null"
+
+* {
+    bg: #111111;
+    bg-alt: #1c1c1c;
+    fg: #d0d0d0;
+    dim: #6a6a6a;
+    sel: #3a3a3a;
+    background-color: transparent;
+    text-color: @fg;
+    border-color: @sel;
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 360px;
+    background-color: @bg;
+    border: 1px;
+}
+
+mainbox { padding: 4px; spacing: 4px; children: [ inputbar, listview, mode-switcher ]; }
+
+inputbar { padding: 4px 6px; spacing: 6px; background-color: @bg-alt; children: [ prompt, entry ]; }
+prompt { text-color: @dim; }
+entry { placeholder: "search"; placeholder-color: @dim; cursor: text; }
+
+listview { lines: 10; columns: 1; fixed-height: false; scrollbar: false; spacing: 0; }
+
+element { padding: 3px 6px; spacing: 6px; cursor: pointer; }
+element normal.normal, element alternate.normal { background-color: @bg; text-color: @fg; }
+element normal.active, element alternate.active { background-color: @bg; text-color: #eeeeee; }
+element normal.urgent, element alternate.urgent { background-color: @bg; text-color: #e8a2a2; }
+element selected.normal, element selected.active, element selected.urgent { background-color: @sel; text-color: #ffffff; }
+element-icon { size: 16px; background-color: inherit; }
+element-text { text-color: inherit; background-color: inherit; vertical-align: 0.5; }
+
+mode-switcher { spacing: 0; }
+button { padding: 3px; text-color: @dim; background-color: @bg-alt; cursor: pointer; }
+button selected { text-color: @fg; background-color: @sel; }
+
+message { padding: 4px 6px; background-color: @bg-alt; }
+textbox { text-color: @fg; }

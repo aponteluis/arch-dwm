@@ -1,0 +1,8 @@
+mode:		blank
+lock:		True
+timeout:	0:10:00
+lockTimeout:	0:00:00
+fade:		False
+unfade:		False
+splash:		False
+dialogTheme:	darkgray
