@@ -55,10 +55,8 @@ The `XLQT BACKUP` folder on the APONTE USB has the files that aren't in git
     for f in "$B"/*.tar.zst; do tar --zstd -xf "$f" -C ~; done
     sudo pacman -S --needed - < "$B/pkglist.txt"
 
-Then download the chmaha JSFX packs again (.ReaperPkg files, 8 packs: Instruments,
-Effects, Evangelina Symphonica, Metering, Break Room, Spatial Audio, Rosalina Curiosa,
-Convolution Reverbs)
-and drag them into REAPER. They aren't in the backup because they take 1.6 GB.
+Then install the chmaha JSFX packs again (see below). They aren't in the backup
+because they take 1.6 GB.
 
 ## REAPER ecosystem
 
@@ -68,7 +66,7 @@ scan cache and the `Indie Band` project template. `files.tar.zst` brings back `~
 | What | How to get it | Where it lives |
 |---|---|---|
 | REAPER | `pacman -S reaper` | `~/.config/REAPER` |
-| 8 chmaha JSFX packs (171 plugins) | latest `.ReaperPkg` of each from https://github.com/chmaha/DSP-Ports-JSFX/releases, drag each onto REAPER | `Effects/DSP to JSFX/Plugin Ports` |
+| 8 chmaha JSFX packs | latest `.ReaperPkg` of each from https://github.com/chmaha/DSP-Ports-JSFX/releases, drag each onto REAPER | `Effects/DSP to JSFX/Plugin Ports` |
 | Guitarix + 112 Gx amps/pedals (LV2) | `pacman -S guitarix gxplugins.lv2` | `/usr/lib/lv2` |
 | sfizz (SFZ player, VST3) | `pacman -S sfizz-vst3` | `/usr/lib/vst3` |
 | Surge XT synth + Effects (VST3) | `pacman -S surge-xt-vst3` | `/usr/lib/vst3` |
@@ -76,11 +74,11 @@ scan cache and the `Indie Band` project template. `files.tar.zst` brings back `~
 
 The chmaha packs are Instruments, Effects MIDI and Utility, Evangelina Symphonica,
 Metering and Visualization, Break Room, Spatial Audio, Rosalina Curiosa, Convolution
-Reverbs. Since 7.84
-REAPER's installer no longer ships them.
+Reverbs. Since 7.84 REAPER's installer no longer ships them.
 
 Install the chmaha packs:
-1. Open REAPER once so `~/.config/REAPER` exists, then close it.
+1. Restore `reaper.tar.zst` first. Without the backup, open REAPER once so
+   `~/.config/REAPER` exists, then close it.
 2. Download the newest version of every pack (it also picks up packs released later):
 
        mkdir -p ~/Downloads/chmaha && cd ~/Downloads/chmaha
@@ -93,7 +91,7 @@ Install the chmaha packs:
 3. Open REAPER and drag each `.ReaperPkg` from the file manager onto the REAPER
    window, one at a time. Accept the install prompt.
 4. Check: `ls ~/.config/REAPER/Effects/"DSP to JSFX/Plugin Ports"/*.jsfx | wc -l`
-   (171 with the 8 packs above).
+   (168 with the first 7 packs; Convolution Reverbs adds more).
 5. If they don't show in Add FX, restart REAPER (it scans JSFX at start).
 6. `rm -r ~/Downloads/chmaha`
 
